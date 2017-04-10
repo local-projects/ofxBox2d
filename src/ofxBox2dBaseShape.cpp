@@ -158,6 +158,7 @@ void ofxBox2dBaseShape::enableGravity(bool b) {
 
 //------------------------------------------------ 
 void ofxBox2dBaseShape::setFixedRotation(bool b) {
+	body->SetFixedRotation(b);
 	bodyDef.fixedRotation = b;
 }
 

@@ -91,7 +91,9 @@ void ofxBox2d::init() {
 	
 	//worldAABB.lowerBound.Set(-100.0f, -100.0f);
 	//worldAABB.upperBound.Set(100.0f, 100.0f);
-	delete world;
+	if(world) {
+		delete world;
+	}
     world = NULL;
 	world = new b2World(b2Vec2(gravity.x, gravity.y));
     world->SetAllowSleeping(doSleep);
