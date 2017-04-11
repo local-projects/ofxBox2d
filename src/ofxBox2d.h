@@ -54,7 +54,7 @@ private:
 public:
 	
 	// b2AABB				worldAABB;
-	b2World *			world;
+	std::unique_ptr<b2World> world;
 	ofxBox2dRender		debugRender;
 	
 	float				scale;
