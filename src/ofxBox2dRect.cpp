@@ -50,7 +50,7 @@ void ofxBox2dRect::setup(b2World * b2dworld, float x, float y, float w, float h)
 	body = b2dworld->CreateBody(&bodyDef);
 	body->CreateFixture(&fixture);
 
-    updateMesh();
+    updateMesh(); //crash on ios?
     alive = true;
 }
 
@@ -66,6 +66,8 @@ static void rectangle(ofPath & path, const ofRectangle & r){
 //------------------------------------------------
 void ofxBox2dRect::updateMesh() {
 
+	#ifndef TARGET_OPENGLES
+
     float w = getWidth();
     float h = getHeight();
     ofPath path;
@@ -74,6 +76,7 @@ void ofxBox2dRect::updateMesh() {
     mesh.clear();
     mesh = path.getTessellation();
     mesh.setUsage(GL_STATIC_DRAW);
+	#endif
 }
 /*
 //------------------------------------------------
